@@ -1,7 +1,7 @@
-<?php include 'header.php';?>
+<?php include 'lib/header.php';?>
 
 <main>
-    
+
 </main
 
-<?php include 'footer.php';?>
+<?php include 'lib/footer.php';?>
