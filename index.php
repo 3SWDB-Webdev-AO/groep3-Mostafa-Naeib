@@ -1,7 +1,17 @@
-<?php include 'lib/header.php';?>
+<?php include 'lib/header.php'; ?>
 
-<main>
+<main class="home_main">
+    <article>
+        <h1>Lets play Games that you like.</h1>
+        <p>hjsdbfsjkbfsdkjbfsdjbhhjsdbfsjkbfsdkjbfsdjbhhjsdbfsjkbfsdkjbfsdjbhhjsdbfsjkbfs</p>
+    </article>
 
-</main
+    <article>
+        <img src="img/bird.jpg" alt="">
 
-<?php include 'lib/footer.php';?>
+    </article>
+
+</main>
+
+
+<?php include 'lib/footer.php'; ?>
