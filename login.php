@@ -4,11 +4,11 @@
     <form class="login-form" action="login.php" method="post">
         <div class="form-group">
             <label for="username">Gebruikersnaam:</label>
-            <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in">
+            <input type="text" id="username" name="username" placeholder="Voer uw gebruikersnaam in" required>
         </div>
         <div class="form-group">
             <label for="password">Wachtwoord:</label>
-            <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in">
+            <input type="password" id="password" name="password" placeholder="Voer uw wachtwoord in" required>
         </div>
         <div class="form-group">
             <input type="submit" value="Inloggen" class="btn-login">
@@ -21,40 +21,35 @@
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $Gebruikersnaam = $_POST['username'];
+        $gebruikersnaam = $_POST['username'];
         $password = $_POST['password'];
-        $conn = new mysqli('localhost', 'root', '', 'pixelplayground.sql');
         
-        // Controleer of de databaseverbinding succesvol is
-        if ($conn->connect_error) {
-            die("Database connection failed: " . $conn->connect_error);
-        }
+        // Database connectie
+        require_once 'lib/db.php';
         
-        // Gebruik parameterbinding om SQL-injectie te voorkomen
-        $sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = ? AND wachtwoord = ?";
+        // Query om gebruiker te zoeken op gebruikersnaam
+        $sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $Gebruikersnaam, $password);
+        $stmt->bind_param("s", $gebruikersnaam);
         $stmt->execute();
         $result = $stmt->get_result();
-        $aantal = $result->num_rows;
         
-        if ($aantal == 1) {
-            session_start();
-            $_SESSION['gebruikersnaam'] = $Gebruikersnaam;
-            header('Location: login.php');
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+            
+            // Controleer het wachtwoord
+            if (isset($password, $user['wachtwoord'])) {
+                $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+                header('Location: index1.php'); 
+            } else {
+                echo "Verkeerd wachtwoord. Probeer het opnieuw.";
+            }
         } else {
-            echo "Login failed please try again.";
-        }
-        
-        if ($result && $result->num_rows > 0) {
-            $check = $result->fetch_array();
-            // Voer hier verdere bewerkingen uit met $check
+            echo "Gebruikersnaam niet gevonden. Probeer het opnieuw.";
         }
         
         $stmt->close();
         $conn->close();
-    } else {
-        echo "Wrong username or password. Please try again.";
     }
     ?>
 </main>

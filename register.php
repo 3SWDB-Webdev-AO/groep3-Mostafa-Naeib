@@ -18,17 +18,14 @@
         $servername = "localhost";
         $username = "root";
         $dbpassword = "";
-        $database = "pixelplayground.sql";
+        $database = "pixelplayground";
 
         // Hash het wachtwoord en de antwoord van de geheime vraag
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $hashedSecretAnswer = password_hash($secretAnswer, PASSWORD_DEFAULT);
 
         // Connectie maken met de db
-        $conn = new mysqli($servername, $username, $dbpassword, $database); 
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error); 
-        }
+        require_once 'lib/db.php';
 
         // Query om de gebruiker toe te voegen
         $sql = $conn->prepare("INSERT INTO gebruikers (gebruikersnaam, wachtwoord, geheime_vraag, antwoord_geheime_vraag) VALUES (?, ?, ?, ?)");
