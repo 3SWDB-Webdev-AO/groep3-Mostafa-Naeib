@@ -3,7 +3,10 @@ html {
     margin: 0;
     padding: 0;
     background-color: #ebff00;
+    font-family: "VT323", monospace;
+    font-size: large; 
 }
+ 
 
 /* header*/
 
@@ -13,6 +16,7 @@ html {
     align-items: center;
     text-decoration: none;
     padding: 10px 5%;
+    margin-bottom: 30px;
 }
 
 .navbar {
@@ -51,6 +55,35 @@ html {
 
 .home_main {
     display: flex;
+}
+
+.container_images {
+    height: 540px;
+    width: 920px;
+    overflow: hidden;
+}
+
+.container_images img {
+    height: 100%;
+    width: 100%;
+}
+
+.home_main h1 {
+    font-size: 80px;
+}
+
+.home_art1 p {
+    width: 100%;
+    max-width: 400px; /* Hier stel je de breedte van het hokje in */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size:20px 
+}
+
+.home_art1 {
+    max-width: 900px;
+    margin-left: 10px;
 }
 
 

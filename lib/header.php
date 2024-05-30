@@ -7,6 +7,9 @@
     <meta name="description" content="Gaming with friends website">
     <meta name="keywords" content="Gaming, friends, fun, free">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <script src="/groep3-Mostafa-Naeib/lib/script.js" defer></script>
     <title>Document</title>
 
@@ -16,17 +19,17 @@
     
 <?php session_start(); ?>
 
-    <header >
-        <section class="header" >
+    <header>
+        <section class="header">
 
             <section>
                 <a href="img/bird.jpg">Logo</a>
             </section>
 
             <nav class="navbar">
-                <a href="home.php">Home</a>
-                <a href="about.php">About</a>
-                <a href="contact.php">Contact</a>
+                <a href="index.php">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
             </nav>
 
             <section>
