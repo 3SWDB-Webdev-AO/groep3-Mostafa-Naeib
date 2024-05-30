@@ -10,11 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script src="/groep3-Mostafa-Naeib/lib/script.js" defer></script>
     <title>Document</title>
 
 </head>
 
 <body>
+    
+<?php session_start(); ?>
 
     <header>
         <section class="header">
