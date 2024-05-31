@@ -25,7 +25,7 @@
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="#">About</a>
+                <a href="games.php">Games</a>
                 <a href="#">Contact</a>
             </nav>
 
