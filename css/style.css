@@ -91,14 +91,13 @@ html {
 #games-page {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 20px;
 
 }
 
 #kopjes-games {
     text-align: center;
     margin-bottom: 40px;
-    color: #007BFF;
 }
 
 #games-container {
@@ -110,8 +109,9 @@ html {
 
 .game {
     background-color: #fff;
+    border: ;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     padding: 20px;
@@ -126,14 +126,14 @@ html {
 .game img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: px;
     margin-bottom: 15px;
 }
 
 .game h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #007BFF;
+    color: #BF1943;
     background-color: white;
 }
 
@@ -147,15 +147,15 @@ html {
     padding: 10px 20px;
     font-size: 1em;
     color: #fff;
-    background-color: #007BFF;
+    background-color: #BF1943;
     border: none;
-    border-radius: 5px;
+    border-radius: px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .game button:hover {
-    background-color: #0056b3;
+    background-color: #dd083d;
 }
 
 /* Dit is de log in registration pagina  */
