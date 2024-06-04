@@ -12,7 +12,7 @@
             <h2>Dino Run</h2>
             <img src="img/dino.png" alt="Dino Run afbeelding">
             <p>Een eindeloos renspel waarbij je een dinosaurus moet helpen om obstakels te ontwijken.</p>
-            <a href="game2.php"><button>Speel nu!</button></a>
+            <a href="dino_run.php"><button>Speel nu!</button></a>
         </article>
         <article class="game">
             <h2>Snake</h2>

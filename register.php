@@ -8,6 +8,7 @@
         <input type="text" name="secret_answer" placeholder="Secret answer" required>
         <input type="submit" value="register">
     </form>
+    
     <?php
     if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['secret_question']) && isset($_POST['secret_answer'])){
         $gebruikersnaam = $_POST['username'];

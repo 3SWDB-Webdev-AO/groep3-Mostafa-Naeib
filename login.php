@@ -15,7 +15,7 @@
         </div>
         <section class="btn-group">
             <a href="register.php" class="btn-register">Registreer hier</a>
-            <a href="newpassword.php" class="btn-forgot-password">Wachtwoord vergeten</a>
+            <a href="new_pass.php" class="btn-forgot-password">Wachtwoord vergeten</a>
         </section>
     </form>
 
