@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onclick="jump()">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <script src="/groep3-Mostafa-Naeib/lib/script.js" defer></script>
+    <script src="js/home.js" defer></script>
     <title>Document</title>
 
 </head>
@@ -33,7 +33,7 @@
             </nav>
 
             <section>
-                <a href="inlog.php"><img src="img/Account.png" alt=""></a>
+                <a href="login.php"><img src="img/Account.png" alt=""></a>
             </section>
 
         </section>

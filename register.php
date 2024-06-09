@@ -1,13 +1,14 @@
 <?php include 'lib/header.php'; ?>
 <h1 class="h1-rg">Registreer</h1>
 <main class="main-register">
-    <form class="rg-form" action="register.php" method="post">
+<form class="rg-form" action="register.php" method="post">
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="text" name="secret_question" placeholder="Secret question" required>
         <input type="text" name="secret_answer" placeholder="Secret answer" required>
         <input type="submit" value="register">
     </form>
+    
     <?php
     if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['secret_question']) && isset($_POST['secret_answer'])){
         $gebruikersnaam = $_POST['username'];
@@ -15,10 +16,7 @@
         $secretQuestion = $_POST['secret_question'];
         $secretAnswer = $_POST['secret_answer'];
 
-        $servername = "localhost";
-        $username = "root";
-        $dbpassword = "";
-        $database = "pixelplayground";
+    
 
         // Hash het wachtwoord en de antwoord van de geheime vraag
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
