@@ -30,7 +30,7 @@
             <nav class="navbar">
                 <a href="index.php">Home</a>
                 <a href="games.php">Games</a>
-                <a href="">Profile</a>
+                <a href="#">Profile</a>
             </nav>
 
             <section>
