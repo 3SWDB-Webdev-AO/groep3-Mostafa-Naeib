@@ -16,8 +16,6 @@
         $secretQuestion = $_POST['secret_question'];
         $secretAnswer = $_POST['secret_answer'];
 
-    
-
         // Hash het wachtwoord en de antwoord van de geheime vraag
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $hashedSecretAnswer = password_hash($secretAnswer, PASSWORD_DEFAULT);
@@ -31,7 +29,6 @@
 
         if($sql->execute()){
             header('Location: login.php');
-
         } else {
             echo "<div class='conclusie'>Er is iets fout gegaan: " . $conn->error . "</div>";
         }

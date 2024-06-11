@@ -1,6 +1,4 @@
-
 <?php
-
 require_once 'lib/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -53,11 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-
-<?php include 'lib/header.php'; ?>
 <main>
     <section class="formww">
-        <h1>Wachtwoord vergeten?</h1>
+        <h1>Reset je wachtwoord</h1>
         <form method="post" action="">
             <label for="username">Gebruikersnaam:</label><br>
             <input class="input" type="text" id="username" name="username" required><br>
@@ -74,4 +70,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </section>
 </main>
 <?php include 'lib/footer.php'; ?>
-
