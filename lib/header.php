@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" onclick="jump()">
 
 <head>
     <meta charset="UTF-8">
@@ -10,10 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <script src="/groep3-Mostafa-Naeib/lib/script.js" defer></script>
-    <script src="https://kit.fontawesome.com/13f5e46cd8.js" crossorigin="anonymous"></script>
+    <script src="js/home.js" defer></script>
     <title>Document</title>
-
+    <script>
+    let gebruiker_id = <?php echo $_SESSION['gebruiker_id']; ?>;
+</script>
 </head>
 
 <body>
@@ -28,13 +29,37 @@
             </section>
 
             <nav class="navbar">
+
                 <a href="index.php">Home</a>
                 <a href="games.php">Games</a>
                 <a href="#">Profile</a>
             </nav>
-
+                <?php 
+                if(isset($_SESSION['gebruikersnaam'])) {
+                    ?>
+                    <a href="games.php">Games</a>
+                    <a href="highscores.php">Highscores</a>
+                    <a href="logout.php">Uitloggen</a>
+                    <?php
+                }else {
+                    ?>
+                    <a href="#">About Us</a>
+                    <a href="register.php">Registreren</a>
+                    <a href="login.php">Inloggen</a>
+                <?php
+                }
+                ?>
+            </nav>
+    
             <section>
-                <a href="login2.php"><img src="img/Account.png" alt=""></a>
+                <?php
+                if (isset($_SESSION['gebruikersnaam'])) {
+
+                    ?><a href="profile.php"><img src="img/Account.png" alt="profile"></a><?php
+                }else {
+                    echo "Eerst inloggen om je profiel te bekijken";
+                }
+                ?>
             </section>
 
         </section>

@@ -1,4 +1,8 @@
-<?php include 'lib/header.php'; ?>
+<?php include 'lib/header.php'; 
+if(!isset($_SESSION['gebruikersnaam'])) {
+    header('Location: login.php');
+}
+?>
 <main id="games-page">
     <h1 id="kopjes-games">Games</h1>
     <section id="games-container">
@@ -12,7 +16,7 @@
             <h2>Dino Run</h2>
             <img src="img/dino.png" alt="Dino Run afbeelding">
             <p>Een eindeloos renspel waarbij je een dinosaurus moet helpen om obstakels te ontwijken.</p>
-            <a href="game2.php"><button>Speel nu!</button></a>
+            <a href="dino_run.php"><button>Speel nu!</button></a>
         </article>
         <article class="game">
             <h2>Snake</h2>

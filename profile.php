@@ -1,15 +1,10 @@
+<!-- gebruiker ophalen van de db en optie geven opdie te verranderen  -->
 <?php include 'lib/header.php'; ?>
-<?php
-
-if(!isset($_SESSION['gebruikersnaam'])) {
-    header('Location: login.php');
-}
-
-echo "<div class='gebruikersnaam'><a href='profile.php'>" . $_SESSION['gebruikersnaam'] . "</a></div>";
-?>
 <main>
-    <h1>Welkom op de Pixel Playground</h1>
-    <p>De Pixel Playground is een plek waar je je creativiteit de vrije loop kunt laten. Maak je eigen pixel art en deel het met anderen. Of bekijk de creaties van andere gebruikers en laat je inspireren.</p>
+    <h1>Profiel</h1>
+    <p>Welkom op je profielpagina, <?php echo $_SESSION['gebruikersnaam']; ?>! Hier kan je persoonlijke gegevens zien en wijzigen</p>
+    
+    <?php require_once 'new_pass.php';?>
     <h2>Laatste behaalde highscores</h2>
     <?php
     require_once 'lib/db.php';
@@ -21,7 +16,7 @@ echo "<div class='gebruikersnaam'><a href='profile.php'>" . $_SESSION['gebruiker
 
     // Haal de laatste highscores op van de ingelogde gebruiker
     $gebruiker_id = $_SESSION['gebruiker_id'];
-    $sql = "SELECT highscore, game_id FROM highscores WHERE gebruiker_id = ? ORDER BY highscore DESC LIMIT 5";
+    $sql = "SELECT highscore, game_id, timestamp FROM highscores WHERE gebruiker_id = ? ORDER BY highscore DESC LIMIT 5";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $gebruiker_id);
     $stmt->execute();
@@ -31,7 +26,7 @@ echo "<div class='gebruikersnaam'><a href='profile.php'>" . $_SESSION['gebruiker
         echo "<ul>";
         // htmlspecialchars dit zorgt ervoor dat klanten geen code kunnen injecteren in de database
         while($row = $result->fetch_assoc()) {
-            echo "<li>Game ID: " . htmlspecialchars($row['game_id']) . " - Score: " . htmlspecialchars($row['highscore']) . "</li>";
+            echo "<li>Game ID: " . htmlspecialchars($row['game_id']) . " - Score: " . htmlspecialchars($row['highscore']) . " - Datum: " . htmlspecialchars($row['timestamp']) . "</li>";
         }
         echo "</ul>";
     } else {
@@ -43,3 +38,4 @@ echo "<div class='gebruikersnaam'><a href='profile.php'>" . $_SESSION['gebruiker
     ?>
 </main>
 <?php include 'lib/footer.php'; ?>
+
