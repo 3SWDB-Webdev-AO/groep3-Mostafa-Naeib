@@ -55,8 +55,7 @@ html {
 /* home_main*/
 
 .home_main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
 }
 
 .container_images {
