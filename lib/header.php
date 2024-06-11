@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <script src="/groep3-Mostafa-Naeib/lib/script.js" defer></script>
-    <script src="https://kit.fontawesome.com/13f5e46cd8.js" crossorigin="anonymous"></script>
     <title>Document</title>
 
 </head>
@@ -29,12 +28,12 @@
 
             <nav class="navbar">
                 <a href="index.php">Home</a>
-                <a href="games.php">Games</a>
-                <a href="">Profile</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
             </nav>
 
             <section>
-                <a href="login2.php"><img src="img/Account.png" alt=""></a>
+                <a href="inlog.php"><img src="img/Account.png" alt=""></a>
             </section>
 
         </section>
