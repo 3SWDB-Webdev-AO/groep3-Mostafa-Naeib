@@ -1,4 +1,6 @@
-<?php include 'lib/header.php'; ?>
+<?php
+include 'lib/header.php';
+?>
 
 <main class="login-main">
     <form class="login-form" action="login.php" method="post">
@@ -15,7 +17,7 @@
         </div>
         <section class="btn-group">
             <a href="register.php" class="btn-register">Registreer hier</a>
-            <a href="newpassword.php" class="btn-forgot-password">Wachtwoord vergeten</a>
+            <a href="new_pass.php" class="btn-forgot-password">Wachtwoord vergeten</a>
         </section>
     </form>
 
@@ -38,9 +40,14 @@
             $user = $result->fetch_assoc();
             
             // Controleer het wachtwoord
-            if (isset($password, $user['wachtwoord'])) {
+            if (password_verify($password, $user['wachtwoord'])) {
+                // Stel de sessievariabelen in
+                $_SESSION['gebruiker_id'] = $user['id'];
                 $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+                
+                // Redirect de gebruiker naar een andere pagina
                 header('Location: index1.php'); 
+                exit(); // Stop verdere uitvoering
             } else {
                 echo "Verkeerd wachtwoord. Probeer het opnieuw.";
             }
