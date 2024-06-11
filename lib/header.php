@@ -12,7 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <script src="js/home.js" defer></script>
     <title>Document</title>
-
+    <script>
+    let gebruiker_id = <?php echo $_SESSION['gebruiker_id']; ?>;
+</script>
 </head>
 
 <body>
@@ -27,13 +29,35 @@
             </section>
 
             <nav class="navbar">
-                <a href="index.php">Home</a>
-                <a href="games.php">Games</a>
-                <a href="#">Contact</a>
-            </nav>
 
+                <a href="index.php">Home</a>
+                <?php 
+                if(isset($_SESSION['gebruikersnaam'])) {
+                    ?>
+                    <a href="games.php">Games</a>
+                    <a href="highscores.php">Highscores</a>
+                    <a href="logout.php">Uitloggen</a>
+                    <?php
+
+                }else {
+                    ?>
+                    <a href="#">About Us</a>
+                    <a href="register.php">Registreren</a>
+                    <a href="login.php">Inloggen</a>
+                <?php
+                }
+                ?>
+            </nav>
+    
             <section>
-                <a href="login.php"><img src="img/Account.png" alt=""></a>
+                <?php
+                if (isset($_SESSION['gebruikersnaam'])) {
+
+                    ?><a href="profile.php"><img src="img/Account.png" alt="profile"></a><?php
+                }else {
+                    echo "Eerst inloggen om je profiel te bekijken";
+                }
+                ?>
             </section>
 
         </section>

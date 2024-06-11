@@ -1,4 +1,8 @@
-<?php include 'lib/header.php'; ?>
+<?php include 'lib/header.php'; 
+if(!isset($_SESSION['gebruikersnaam'])) {
+    header('Location: login.php');
+}
+?>
 <main id="games-page">
     <h1 id="kopjes-games">Games</h1>
     <section id="games-container">

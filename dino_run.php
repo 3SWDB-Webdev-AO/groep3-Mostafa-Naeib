@@ -12,35 +12,25 @@
     </section>
     
     <?php
-        require_once 'lib/db.php';
+    require_once 'lib/db.php';
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['score'])) {
+        $score = intval($_POST['score']);
+        $game_id = 3; // ID van "dino_run"
+        $gebruiker_id = $_SESSION['gebruiker_id'];
 
-        // Check if the form is submitted
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Get the score from the form
-            $score = $_POST['score'];
+        $stmt = $conn->prepare("INSERT INTO highscores (game_id, gebruiker_id, highscore) VALUES (?, ?, ?)");
+        $stmt->bind_param("iii", $game_id, $gebruiker_id, $score);
 
-            try {
-                // Prepare the SQL statement using PDO
-                $stmt = $conn->prepare("INSERT INTO highscores (score) VALUES (:score)");
-
-                // Bind the score parameter
-                $stmt->bindParam(':score', $score, PDO::PARAM_INT);
-
-                // Execute the statement
-                $stmt->execute();
-
-                // Display a success message
-                echo "Score inserted successfully!";
-            } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
-            }
+        if ($stmt->execute()) {
+            echo "New score saved successfully";
+        } else {
+            echo "Error: " . $stmt->error;
         }
+
+        $stmt->close();
+    }
     ?>
-
-    <form method="POST" action="">
-        <input type="hidden" name="score" value="0">
-        <button type="submit">Submit Score</button>
-    </form>
-
 </main>
+
 <?php include 'lib/footer.php'; ?>
