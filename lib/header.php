@@ -31,6 +31,9 @@
             <nav class="navbar">
 
                 <a href="index.php">Home</a>
+                <a href="games.php">Games</a>
+                <a href="#">Profile</a>
+            </nav>
                 <?php 
                 if(isset($_SESSION['gebruikersnaam'])) {
                     ?>
@@ -38,7 +41,6 @@
                     <a href="highscores.php">Highscores</a>
                     <a href="logout.php">Uitloggen</a>
                     <?php
-
                 }else {
                     ?>
                     <a href="#">About Us</a>
