@@ -61,6 +61,7 @@
             // Controleer het wachtwoord
             if (password_verify($password, $user['wachtwoord'])) {
                 $_SESSION['gebruikersnaam'] = $gebruikersnaam;
+                $_SESSION['gebruiker_id'] = $user['gebruiker_id'];
                 header('Location: index1.php');
                 exit();
             } else {
