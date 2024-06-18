@@ -1,5 +1,9 @@
 <!-- gebruiker ophalen van de db en optie geven opdie te verranderen  -->
-<?php include 'lib/header.php'; ?>
+<?php include 'lib/header.php'; 
+    include 'functions.php';
+
+?>
+
 <main>
     <h1>Profiel</h1>
     <p>Welkom op je profielpagina, <?php echo $_SESSION['gebruikersnaam']; ?>! Hier kan je persoonlijke gegevens zien en wijzigen</p>
@@ -38,4 +42,3 @@
     ?>
 </main>
 <?php include 'lib/footer.php'; ?>
-

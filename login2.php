@@ -1,8 +1,8 @@
 <?php include 'lib/header.php'; ?>
-
+<?php require_once 'functions.php'; ?>
 <main class="container" id="container">
     <article class="form-container sign-up">
-        <form>
+        <form method="POST">
             <h1>Create Account</h1>
             <div class="social-icons">
                 <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -10,17 +10,18 @@
                 <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
                 <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
-            <span>or use your email for registeration</span>
+            <span>or use your email for registration</span>
+
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="text" name="secret_question" placeholder="Secret question" required>
             <input type="text" name="secret_answer" placeholder="Secret answer" required>
-            <button>Sign Up</button>
+            <button type="submit">Sign Up</button>
         </form>
     </article>
 
     <article class="form-container sign-in">
-        <form method="POST"> 
+        <form method="POST">
             <h1>Sign In</h1>
             <div class="social-icons">
                 <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -31,50 +32,10 @@
             <span>or use your email password</span>
             <input type="text" id="username" name="username" placeholder="Username" required>
             <input type="password" id="password" name="password" placeholder="Password" required>
-            <a href="#">Forget Your Password?</a>
-            <input type="submit" value="Inloggen" class="btn-login">
+            <a href="new_pass.php">Forget Your Password?</a>
+            <input type="submit" value="Inloggen" name ='login' class="btn-login">
         </form>
     </article>
-    <?php
-    session_start();
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $gebruikersnaam = $_POST['username'];
-        $password = $_POST['password'];
-
-        // Debugging output
-        echo "Gebruikersnaam: $gebruikersnaam<br>";
-        echo "Wachtwoord: $password<br>";
-
-        // Database connectie
-        require_once 'lib/db.php';
-
-        // Query om gebruiker te zoeken op gebruikersnaam
-        $sql = "SELECT * FROM gebruikers WHERE gebruikersnaam = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $gebruikersnaam);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows === 1) {
-            $user = $result->fetch_assoc();
-
-            // Controleer het wachtwoord
-            if (password_verify($password, $user['wachtwoord'])) {
-                $_SESSION['gebruikersnaam'] = $gebruikersnaam;
-                $_SESSION['gebruiker_id'] = $user['gebruiker_id'];
-                header('Location: index1.php');
-                exit();
-            } else {
-                echo "Verkeerd wachtwoord. Probeer het opnieuw.";
-            }
-        } else {
-            echo "Gebruikersnaam niet gevonden. Probeer het opnieuw.";
-        }
-
-        $stmt->close();
-        $conn->close();
-    }
-    ?>
 
     <article class="toggle-container">
         <section class="toggle">
@@ -91,6 +52,19 @@
         </section>
     </article>
 </main>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['register'])) {
+        register($_POST);
+    } else if (isset($_POST['login'])) {
+        if(login($_POST)){
+            header('Location: index1.php');
+        
+        }
+    }
+}
+?>
 
 <script src="script.js"></script>
 
