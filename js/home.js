@@ -1,40 +1,55 @@
 let karakter = document.getElementById('karakter');
 let blok = document.getElementById('blok');
 let score = 0;
-let game_id = 3; // Voorbeeld game_id voor "dino_run"
-let gebruiker_id = 1; // Dit wordt meestal vanuit PHP ingeladen in de JavaScript, zie opmerking hieronder
+let gameRunning = true;
 
-function jump(){
-    karakter.classList.add("jump-animation");
-    setTimeout(function(){
-        karakter.classList.remove("jump-animation");
-    }, 550);
+function jump() {
+    if (!karakter.classList.contains("animate")) {
+        karakter.classList.add("animate");
+        setTimeout(function() {
+            karakter.classList.remove("animate");
+        }, 500);
+    }
 }
 
-var checkDead = setInterval(function(){
-    var karakterTop = parseInt(window.getComputedStyle(karakter).getPropertyValue("top"));
-    var blokLeft = parseInt(window.getComputedStyle(blok).getPropertyValue("left"));
-    if (blokLeft < 20 && blokLeft > 0 && karakterTop >= 130) {
+document.addEventListener("keydown", function(event) {
+    if (event.code === "Space") {
+        jump();
+    }
+});
+
+function checkDead() {
+    let karakterTop = parseInt(window.getComputedStyle(karakter).getPropertyValue("bottom"));
+    let blokLeft = parseInt(window.getComputedStyle(blok).getPropertyValue("left"));
+    if (blokLeft < 20 && blokLeft > 0 && karakterTop <= 130) {
         blok.style.animation = "none";
         blok.style.display = "none";
-        alert("klik op OK to play again. Score: " + score);
-        // Eerst een melding met score en dan word de pagina opnieuw geladen
-        // location.reload();
-        // Stuur de score naar PHP
+        alert("You lose! Score: " + score);
         sendScoreToPHP(score);
+        alert("Klik op OK om opnieuw te spelen.");
         location.reload();
+        gameRunning = false;
     }
-}, 10);
+    if (gameRunning) {
+        requestAnimationFrame(checkDead);
+    }
+}
 
-var updateScore = setInterval(function(){
-    score++;
-    document.getElementById('score').innerHTML = "Score: " + score;
-}, 100);
+requestAnimationFrame(checkDead);
+
+function updateScore() {
+    if (gameRunning) {
+        score++;
+        document.getElementById('score').innerHTML = "Score: " + score;
+        setTimeout(updateScore, 100);
+    }
+}
+
+updateScore();
 
 function sendScoreToPHP(score) {
-    die(score);
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "", true); // Stuur naar dezelfde pagina
+    xhr.open("POST", "http://localhost/groep3-Mostafa-Naeib/dino_run.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -44,8 +59,7 @@ function sendScoreToPHP(score) {
     xhr.send("score=" + score);
 }
 
-
-// slideshow code 
+// Slideshow code
 var currentIndex = 0;
 function automaticSlide() {
     var images = document.querySelectorAll('.container_images img');
@@ -54,5 +68,5 @@ function automaticSlide() {
     });
     currentIndex = (currentIndex + 1) % images.length;
 }
-setInterval(automaticSlide, 3000); // Change image every 3 seconds
+setInterval(automaticSlide, 3000);
 document.addEventListener("DOMContentLoaded", automaticSlide);

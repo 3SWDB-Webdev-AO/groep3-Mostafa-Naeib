@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" onclick="jump()">
 
@@ -19,7 +20,6 @@
 
 <body>
     
-<?php session_start(); ?>
 
     <header>
         <section class="header">
@@ -42,7 +42,6 @@
                 }else {
                     ?>
                     <a href="#">About Us</a>
-                    <a href="register.php">Registreren</a>
                     <a href="login2.php">Inloggen</a>
                 <?php
                 }
@@ -54,8 +53,6 @@
                 if (isset($_SESSION['gebruikersnaam'])) {
 
                     ?><a href="profile.php"><img src="img/Account.png" alt="profile"></a><?php
-                }else {
-                    echo "Eerst inloggen om je profiel te bekijken";
                 }
                 ?>
             </section>
