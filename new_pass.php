@@ -2,6 +2,9 @@
 
 require_once 'lib/db.php';
 
+// wachtwoordVergeten($_POST);
+
+
 if(!isset($_SESSION['gebruikersnaam'])) {
     header('Location: login2.php');
 }

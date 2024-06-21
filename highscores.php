@@ -1,7 +1,15 @@
 <?php include 'lib/header.php'; ?>
 <main>
 <h2>Laatste behaalde highscores</h2>
-    <?php
+
+
+<!-- getHighscore($_POST); -->
+
+<!-- Mijn Xampp werkt nu dus ik kon dit niet uitesten -->
+
+
+
+<?php
     require_once 'lib/db.php';
 
     // Controleer de connectie
