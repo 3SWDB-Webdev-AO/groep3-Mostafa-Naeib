@@ -86,6 +86,10 @@ function sendScoreToPHP(score) {
 var currentIndex = 0; // Huidige index van de afbeelding
 
 // Functie om de afbeeldingen automatisch te laten schuiven
+
+// Slideshow code van home 
+var currentIndex = 0;
+ main
 function automaticSlide() {
     var images = document.querySelectorAll('.container_images img'); // Haal alle afbeeldingen op
     // Loop door alle afbeeldingen en toon alleen de huidige afbeelding

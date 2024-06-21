@@ -1,12 +1,14 @@
 <?php include 'lib/header.php'; ?>
 
 <main>
-    <article>
-        <section id="game"></section>
-        <button onclick="stopSliding(1)" id="btn">stop !</button>
-    </article>
+<div id="game">
+    <div id="character"></div>
+</div>
+<div>
+    <h1 class="flashbang">Darkmode</h1>
+</div>
 
-    <script src="js/game_2.js"></script>
+    <script src="js/game_2.js" defer></script>
 </main>
 
 
