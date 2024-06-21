@@ -4,9 +4,9 @@
     <section id="games-container">
         <article class="game">
             <h2>Flappy Bird</h2>
-            <img src="img/bird.jpg" alt="Flappy Bird afbeelding">
-            <p>Een verslavend spel waarbij je een vogel moet helpen om obstakels te ontwijken.</p>
-            <a href="game1.php"><button>Speel nu!</button></a>
+            <img src="img/game2.png" alt="Flappy Bird afbeelding">
+            <p>Een verslavend spel waarbij je een bal moet helpen om naar beneden te brengen</p>
+            <a href="game_2.php"><button>Speel nu!</button></a>
         </article>
         <article class="game">
             <h2>Dino Run</h2>
@@ -18,13 +18,13 @@
             <h2>Snake</h2>
             <img src="img/snake.png" alt="Snake afbeelding">
             <p>Een klassiek spel waarbij je een slang moet besturen en appels moet eten om te groeien.</p>
-            <a href="game3.php"><button>Speel nu!</button></a>
+            <a href="#"><button>Speel nu!</button></a>
         </article>
         <article class="game">
             <h2>Galgje</h2>
             <img src="img/galgje.png" alt="Galgje afbeelding">
             <p>Een woordspel waarbij je het woord moet raden voordat de poppetje volledig getekend zijn.</p>
-            <a href="game4.php"><button>Speel nu!</button></a>
+            <a href="#"><button>Speel nu!</button></a>
         </article>
     </section>
 </main>

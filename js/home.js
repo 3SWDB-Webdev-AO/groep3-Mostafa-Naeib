@@ -59,7 +59,7 @@ function sendScoreToPHP(score) {
     xhr.send("score=" + score);
 }
 
-// Slideshow code
+// Slideshow code van home 
 var currentIndex = 0;
 function automaticSlide() {
     var images = document.querySelectorAll('.container_images img');
