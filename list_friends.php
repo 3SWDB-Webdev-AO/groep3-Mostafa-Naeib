@@ -1,3 +1,5 @@
+<?php include 'lib/header.php'; ?>
+
 <?php
 include 'lib/db.php';
 
@@ -37,3 +39,4 @@ echo "</ul>";
 $stmt->close();
 $conn->close();
 ?>
+<?php include 'lib/footer.php'; ?>

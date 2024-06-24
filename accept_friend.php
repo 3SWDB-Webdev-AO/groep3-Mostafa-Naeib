@@ -1,3 +1,5 @@
+<?php include 'lib/header.php'; ?>
+
 <?php
 include 'lib/db.php';
 
@@ -29,3 +31,5 @@ if (isset($_POST['gebruiker_id']) && isset($_POST['vriend_id'])) {
 
 $conn->close();
 ?>
+
+<?php include 'lib/footer.php'; ?>
