@@ -581,3 +581,8 @@ input[type="submit"]:hover {
         /* Eind kleur */
     }
 }
+
+/*footer*/
+footer {
+    text-align: center;
+}

@@ -36,6 +36,7 @@
                     ?>
                     <a href="games.php">Games</a>
                     <a href="highscores.php">Highscores</a>
+                    <a href="friends.php">Friends</a>
                     <a href="logout.php">Uitloggen</a>
                     <?php
 
